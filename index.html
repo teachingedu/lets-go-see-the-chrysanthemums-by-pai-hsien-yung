@@ -1,0 +1,1173 @@
+<html lang="zh-HK">
+  <head>
+    <meta http-equiv="x-dns-prefetch-control" content="off" />
+    <meta name="x-poe-datastore-behavior" content="disabled" />
+    <meta name="x-poe-allow-downloads" content="true" />
+    <script src="https://puc.poecdn.net/standard.25f6d5ebb7608dc2f276.js"></script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>《我們看菊花去》互動教學</title>
+    <style>
+      /* 基本樣式 */
+      body {
+        font-family: "Segoe UI", "Microsoft JhengHei", "PingFang TC", sans-serif;
+        line-height: 1.8;
+        color: #333;
+        margin: 0;
+        padding: 0;
+        background-color: #f4f7f6;
+      }
+
+      .container {
+        max-width: 900px;
+        margin: 20px auto;
+        background-color: #fff;
+        padding: 25px;
+        border-radius: 10px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      }
+
+      header {
+        text-align: center;
+        padding-bottom: 20px;
+        border-bottom: 2px solid #e0e0e0;
+        margin-bottom: 30px;
+      }
+
+      header h1 {
+        color: #2c3e50;
+        font-size: 2.5em;
+        margin-bottom: 10px;
+      }
+
+      header p {
+        color: #7f8c8d;
+        font-size: 1.1em;
+      }
+
+      /* 導航欄 */
+      nav {
+        background-color: #34495e;
+        padding: 10px 0;
+        text-align: center;
+        border-radius: 5px;
+        margin-bottom: 30px;
+      }
+
+      nav ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      nav ul li {
+        margin: 5px 15px;
+      }
+
+      nav ul li a {
+        color: #ecf0f1;
+        text-decoration: none;
+        font-weight: bold;
+        font-size: 1em;
+        padding: 8px 12px;
+        border-radius: 5px;
+        transition: background-color 0.3s ease;
+      }
+
+      nav ul li a:hover,
+      nav ul li a.active {
+        background-color: #2c3e50;
+      }
+
+      /* 內容區塊 */
+      section {
+        margin-bottom: 40px;
+        padding: 20px;
+        background-color: #fdfdfd;
+        border-left: 5px solid #3498db;
+        border-radius: 5px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+      }
+
+      section h2 {
+        color: #2980b9;
+        font-size: 1.8em;
+        margin-top: 0;
+        margin-bottom: 20px;
+        border-bottom: 1px dashed #ccc;
+        padding-bottom: 10px;
+      }
+
+      section h3 {
+        color: #34495e;
+        font-size: 1.4em;
+        margin-top: 25px;
+        margin-bottom: 15px;
+      }
+
+      section p {
+        margin-bottom: 15px;
+        text-align: justify;
+      }
+
+      /* 原文內容樣式 */
+      .original-text p {
+        text-indent: 2em; /* 首行縮進 */
+        margin-bottom: 10px;
+        line-height: 1.9;
+      }
+      .original-text h3 {
+        text-align: center;
+        font-size: 1.6em;
+        margin-top: 30px;
+        margin-bottom: 20px;
+        color: #2c3e50;
+      }
+      .original-text .section-header {
+        font-size: 1.2em;
+        font-weight: bold;
+        margin-top: 20px;
+        margin-bottom: 10px;
+        color: #2980b9;
+      }
+
+      /* 可摺疊內容 (Accordion) */
+      .accordion-item {
+        margin-bottom: 15px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        overflow: hidden;
+      }
+
+      .accordion-header {
+        background-color: #eaf2f8;
+        padding: 15px 20px;
+        cursor: pointer;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-weight: bold;
+        color: #2c3e50;
+        font-size: 1.1em;
+        transition: background-color 0.3s ease;
+      }
+
+      .accordion-header:hover {
+        background-color: #d6eaf8;
+      }
+
+      .accordion-header .icon {
+        font-size: 1.2em;
+        transition: transform 0.3s ease;
+      }
+
+      .accordion-content {
+        padding: 0 20px;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.5s ease-out, padding 0.5s ease-out;
+        background-color: #fff;
+      }
+
+      .accordion-item.active .accordion-content {
+        max-height: 500px; /* Adjust as needed for content length */
+        padding: 15px 20px;
+      }
+
+      .accordion-item.active .accordion-header .icon {
+        transform: rotate(90deg);
+      }
+
+      /* 互動小測 */
+      .quiz-question {
+        margin-bottom: 20px;
+        padding: 15px;
+        border: 1px solid #b3e0ff;
+        border-radius: 8px;
+        background-color: #e6f7ff;
+      }
+
+      .quiz-question p {
+        font-weight: bold;
+        color: #2c3e50;
+        margin-bottom: 10px;
+      }
+
+      .quiz-options label {
+        display: block;
+        margin-bottom: 8px;
+        cursor: pointer;
+        padding: 5px;
+        border-radius: 4px;
+        transition: background-color 0.2s ease;
+      }
+
+      .quiz-options label:hover {
+        background-color: #d1eaff;
+      }
+
+      .quiz-options input[type="radio"] {
+        margin-right: 8px;
+      }
+
+      .quiz-feedback {
+        margin-top: 10px;
+        padding: 10px;
+        border-radius: 5px;
+        font-weight: bold;
+        display: none; /* Hidden by default */
+      }
+
+      .quiz-feedback.correct {
+        background-color: #d4edda;
+        color: #155724;
+        border: 1px solid #c3e6cb;
+      }
+
+      .quiz-feedback.incorrect {
+        background-color: #f8d7da;
+        color: #721c24;
+        border: 1px solid #f5c6cb;
+      }
+
+      .submit-quiz-btn {
+        display: block;
+        width: 150px;
+        padding: 12px 20px;
+        margin: 20px auto 0;
+        background-color: #28a745;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 1.1em;
+        transition: background-color 0.3s ease;
+      }
+
+      .submit-quiz-btn:hover {
+        background-color: #218838;
+      }
+
+      .quiz-results {
+        margin-top: 20px;
+        padding: 15px;
+        border: 1px solid #ced4da;
+        border-radius: 5px;
+        background-color: #f1f3f5;
+        text-align: center;
+        font-size: 1.1em;
+        font-weight: bold;
+        display: none;
+      }
+
+      /* 響應式設計 */
+      @media (max-width: 768px) {
+        .container {
+          margin: 15px;
+          padding: 15px;
+        }
+
+        header h1 {
+          font-size: 2em;
+        }
+
+        nav ul {
+          flex-direction: column;
+          align-items: center;
+        }
+
+        nav ul li {
+          margin: 5px 0;
+          width: 90%;
+        }
+
+        nav ul li a {
+          display: block;
+          width: 100%;
+          text-align: center;
+        }
+
+        section {
+          padding: 15px;
+        }
+
+        section h2 {
+          font-size: 1.5em;
+        }
+
+        .accordion-header {
+          font-size: 1em;
+          padding: 12px 15px;
+        }
+      }
+
+      @media (max-width: 480px) {
+        header h1 {
+          font-size: 1.8em;
+        }
+
+        section h2 {
+          font-size: 1.3em;
+        }
+
+        .submit-quiz-btn {
+          width: 100%;
+        }
+      }
+    </style>
+    <script src="https://puc.poecdn.net/disableWebRTC.9710cebe07429a9e8e06.js"></script>
+    <script src="https://puc.poecdn.net/miniApp.33cdec16f39e03818f76.js"></script>
+    <script src="https://puc.poecdn.net/console.0006988603ad6bbff4a0.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <h1>《我們看菊花去》互動教學</h1>
+        <p>白先勇 著</p>
+      </header>
+
+      <nav>
+        <ul>
+          <li><a href="#intro" class="nav-link">引言</a></li>
+          <li><a href="#plot" class="nav-link active">故事梗概</a></li>
+          <li><a href="#original" class="nav-link">原文節錄</a></li>
+          <li><a href="#characters" class="nav-link">人物分析</a></li>
+          <li><a href="#themes" class="nav-link">主題探討</a></li>
+          <li><a href="#techniques" class="nav-link">寫作手法</a></li>
+          <li><a href="#language" class="nav-link">語文知識</a></li>
+          <li><a href="#discussion" class="nav-link">思考與討論</a></li>
+          <li><a href="#quiz" class="nav-link">互動小測</a></li>
+        </ul>
+      </nav>
+
+      <main>
+        <section id="intro">
+          <h2>引言</h2>
+          <div
+            style="
+              margin-bottom: 20px;
+              padding: 15px;
+              background-color: #f0f8ff;
+              border-left: 4px solid #3498db;
+              border-radius: 5px;
+            "
+          >
+            <h3>小說介紹音頻</h3>
+            <audio controls style="width: 100%">
+              <source src="your_audio_file.mp3" type="audio/mpeg" />
+              您的瀏覽器不支持音頻播放。
+            </audio>
+            <p style="font-size: 0.9em; color: #555; margin-top: 10px">
+              （此為約3分鐘的小說背景與梗概介紹，建議聆聽後繼續閱讀）
+            </p>
+          </div>
+          <h3>作者簡介：白先勇</h3>
+          <p>
+            白先勇（1937年－），著名華人作家，出生於廣西桂林，為國民黨高級將領白崇禧之子。他於台灣大學外文系畢業後赴美深造，並在美國加州大學聖塔芭rbara分校任教多年。白先勇的寫作風格融合了中國傳統美學與西方現代主義技巧，作品常描寫新舊交替時代人物的命運，充滿歷史興衰與人世滄桑感。他的代表作包括小說集《台北人》、《寂寞的十七歲》及長篇小說《孽子》等。他認為「寫作是把人類心靈中的痛楚變成文字」。
+            [4, 5, 17]
+          </p>
+
+          <h3>寫作背景</h3>
+          <p>
+            《我們看菊花去》是白先勇於1959年發表的一篇短篇小說，最初題為《入院》，後收錄於其小說集《寂寞的十七歲》中。這篇小說帶有強烈的自傳色彩，靈感來自於白先勇與其三姐白先明的故事。白先明因精神分裂症從美國返台，白先勇對其姐感情深厚，但又必須面對將其送入精神病院的現實。小說深刻地抒發了作者對患病親人的同情、對現實的無奈與感傷，以及姐弟之間複雜而深厚的感情。
+            [2, 3, 4, 5, 15]
+          </p>
+
+          <h3>題解</h3>
+          <p>
+            小說原名《入院》，直接點明了故事的核心情節——將患病姐姐送入醫院。而更名為《我們看菊花去》，則為故事增添了豐富的象徵意義和情感層次。「菊花」在中國文化中常象徵高潔、隱逸與長壽，但在文中，它成為了弟弟哄騙姐姐的藉口，也暗示了姐姐純真世界的美好與脆弱，以及最終被現實殘酷擊碎的悲劇。菊花的「冷香」也與故事陰鬱、感傷的氣氛相呼應。
+            [3, 4]
+          </p>
+        </section>
+
+        <section id="plot">
+          <h2>故事梗概</h2>
+          <p>
+            故事發生在一個陰寒的早晨，「我」（弟弟）受父親所託，要將患有精神疾病的姐姐送入精神病院。為了讓姐姐順從，我謊稱要帶她去看菊花展。在前往醫院的路上，姐弟倆回憶起童年無憂的歲月，這些回憶也間接交代了姐姐精神失常的線索。抵達醫院後，姐姐開始感到不安並吵嚷著要回家，我再次欺騙她，說要先探望朋友，之後再去看菊花。最終，在我的哄騙下，姐姐被護士帶走，鐵柵門「克察」一聲上鎖，將姐弟二人隔開。姐姐這時才意識到自己被騙，緊抓鐵柵哭泣。故事結尾，「我」獨自一人在新公園看著菊花，心中充滿了對姐姐的愧疚與悲哀，後悔利用了姐姐的純真感情。
+            [2, 3, 4, 5]
+          </p>
+        </section>
+
+        <section id="original">
+          <h2>原文《我們看菊花去》(節錄)</h2>
+          <div class="original-text">
+            <h3>《我們看菊花去》</h3>
+            <p style="text-align: right">白先勇</p>
+
+            <p class="section-header">一</p>
+            <p>
+              早上有點陰寒，從被窩裏伸出手來覺得冰浸的；紗窗外朦朦朧朧，是一片暗灰色，乍看起來辰光還早得很。我打了一個翻身，剛想閉上眼睛養會兒神，爸爸已經來叫我了。他說姊姊的住院手續全部辦妥，林大夫跟他約好了十點鐘在台大醫院見面，但是他臨時有個會要開，恐怕趕不回來，所以叫我先送姊姊去，他隨後把姊姊的衣服送去。爸爸臨出門的時候對我再三囑咐，叫我送姊姊去的時候千萬要小心。
+            </p>
+            <p>
+              我到姊姊房中時，媽一個人正在低着頭替姊姊收拾衣服用具，她看見我走進來便問我道：
+            </p>
+            <p>「爸爸跟你講過了吧？」</p>
+            <p>「講過了，媽。」</p>
+            <p>
+              媽仍舊低下頭繼續收拾東西，我坐在牀邊沒有說話，默默地看着她把姊姊的衣服一件一件從櫃子裏拿出來，然後疊得平平的放進姊姊的小皮箱中。房裏很靜，只有媽抖衣服的窸窣聲。我偷偷地端詳了媽的臉一下，她的臉色蒼白，眼皮似乎還有些兒浮腫似的。
+            </p>
+            <p>
+              的。媽一向就有失眠症，早上總是起不早的，可是今天天剛亮我就彷彿聽到她在隔壁房裏講話了。
+            </p>
+            <p>
+              「媽，你今天起得那麼早，這下子該有點累了，去歇歇好吧？」我看媽彎着腰的樣子很疲倦，站起來想去代她疊衣服。媽朝我擺了擺手，仍然沒有抬起頭來；可是我卻看見她手中拿着的那件紅毛衣角上閃着兩顆大大的淚珠。
+            </p>
+            <p>
+              「媽，你要不要再見姊姊一面？」我看媽快要收拾完畢時便問她道，媽的嘴皮動了幾下想說甚麼話又吞了下去，過了半晌終於答道：
+            </p>
+            <p>
+              「好的，你去帶你姊姊來罷！」可是我剛踏出房門，媽忽然制止我：「不—不—現在不要，我現在不能見她。」
+            </p>
+
+            <p class="section-header">二</p>
+            <p>
+              我們院子裏本來就寒傖，這十月天愈更蕭條；幾株扶桑枝條上東一個西一個盡掛着蟲繭，有幾朵花苞才伸頭就給毛蟲咬死了，紫漿都淌了出來，好像傷兵流的淤血。原來小徑的兩旁剛種了兩排杜鵑，哪曉得上月一陣颱風，全倒了—萎縮得如同發育不全的老姑娘，明年也未必能開花。姊姊坐在小徑盡頭的石頭堆上，懷中抱着她那頭胖貓咪，她的臉偎着貓咪的頭，嘰嘰咕咕不知對貓咪講些甚麼。當她看見我走過去的時候，瞪着眼睛向我凝視了一會兒，忽然咧開嘴笑得像個小孩似的：
+            </p>
+            <p>
+              「嘻嘻，弟弟，我才和咪咪說，叫牠乖些，我等一下給牠弄條魚吃，喔！弟弟，昨晚好冷，嚇得我要死！我把咪咪放到被窩裏面來了，被窩裏好暖和的，地板冷，咪咪要凍壞，嘻嘻—嘻嘻—咪咪不聽話，在被窩裏亂舔我的臉，後來又溜了出來。你看，咪咪！你打噴嚏了吧？聽話，噢！等一下我給你魚吃—」姊姊在貓咪的鼻尖上吻了一下，貓咪聳了一聳毛，舒舒服服的打了一個呼嚕。
+            </p>
+            <p>
+              姊姊的大衣鈕子扣錯了，身上東扯西拉的，顯得愈更臃腫，身上的肉箍得一節一節擠了出來；袖子也沒有扯好，裏面的毛衣袖口伸出了一半來。頭上的髮夾忘記取下來了，有兩三個吊在耳根子後面，一講話就甩呀甩的，頭髮也是亂蓬蓬一束一束絞纏在一起。
+            </p>
+            <p>
+              「弟弟，咪咪好刁的，昨晚沒得魚，牠連飯都不要吃了，把我氣得要死—」姊姊講到這，貓咪嗚嗚的叫了兩下，姊姊連忙吻牠一下好像生怕得罪牠似的，「哦，哦，你不要怕，噢，我又沒罵你，又沒有打你，你乖我就不說你了，弟弟，你看，你看，咪咪好可憐巴巴的樣子。」
+            </p>
+            <p>
+              三輪車已經在門外等了很久了，我心中一直盤算着如何使姊姊上車而不起疑心，我忽然想到新公園這兩天有菊花展覽，新公園在台大醫院對面。
+            </p>
+            <p>
+              「菊花展覽？呃—呃—想是想去，不過咪咪還沒吃飯，我想我還是不去罷。」
+            </p>
+            <p>
+              「不要緊，姊姊，我們一會就回來，回來給咪咪買兩條魚吃，好不好？」
+            </p>
+            <p>
+              「真的？弟弟，」姊姊喜得抓住我的衣角笑起來，「你答應了的啵，弟弟，兩條魚！咪咪，你聽到沒有？」姊姊在貓咪的鼻尖上吻了好幾下。
+            </p>
+            <p>
+              我幫姊姊把衣服頭髮整了一下，才挽着她上車，姊姊本來想把貓咪一塊兒帶走的，我堅持不肯，姊姊很難過的樣子放下貓咪對我說：
+            </p>
+            <p>
+              「不要這樣嘛，弟弟，咪咪好可憐的，牠沒有我牠要哭了的，你看，弟弟，牠真的想哭了—咪咪，噢，我馬上就回來，買魚回來給你吃。」
+            </p>
+            <p>車子走了，我看見媽站在大門背後，嘴上捂着一條手帕。</p>
+
+            <p class="section-header">三</p>
+            <p>
+              姊姊緊緊地挽着我，我握着姊姊胖胖的手臂，十分暖和，姊姊很久沒有上街了，看見街上熱鬧的情形非常興奮，睜大眼睛像個剛進城的小孩一般。
+            </p>
+            <p>
+              「弟弟，你記得以前我們在桂林上小學時也是坐三輪車去的，」姊姊對於小時候的事情記得最清楚。
+            </p>
+            <p>「弟弟，你那時—呃，八歲吧？」</p>
+            <p>「七歲，姊。」</p>
+            <p>「哦，現在呢？」</p>
+            <p>「十八了。」</p>
+            <p>「喔！嘻嘻，弟弟，那時我們愛一道盪鞦韆，有一天，你跌了下來—」</p>
+            <p>「把下巴跌腫了，是不是，姊？」</p>
+            <p>「對啦！嚇得我要死，你想哭—」</p>
+            <p>「你叫我不要哭，你說男孩子哭不得的是嗎？」</p>
+            <p>「對啦！那時立立跟見見還在，他們也是兩姐弟，噢。」</p>
+            <p>「嗯。」</p>
+            <p>「見見是給車壓扁了，立立後來是怎麼着—」</p>
+            <p>「是生肺炎死的，姊。」</p>
+            <p>
+              「對啦，我哭了很久呢！後來我們幫他們在巖洞口挖了兩個墳，還豎了碑的呢！從那時候起我再也不養狗了。」
+            </p>
+            <p>
+              姊姊想到立立與見見，臉上有點悲慘，沉默了一會，她又想到別的事情去了！
+            </p>
+            <p>
+              「弟弟，那時我們愛種南瓜，天天放學到別人家馬棚裏去偷馬糞回來澆肥，噢，那一年我們的南瓜有一個好大好大，多少斤，弟？」
+            </p>
+            <p>「三十多斤呢，姊。」</p>
+            <p>
+              「喔，我記得，我們把那個大南瓜拿到鄉下給奶奶時，奶奶笑得合不攏嘴來，賞了我們好多山楂餅和荸薺呢，奶奶最愛叫我甚麼來着，弟弟，你還記得不？」
+            </p>
+            <p>
+              我怎麼不記得？奶奶最愛叫姊姊「蘋果妹」了，姊姊從小就長得周身渾圓，胖嘟嘟的兩團腮紅透了，兩隻眼睛活像小玩具熊的一樣圓得俏皮，奶奶一看見她就揪住她的胖腮幫子吻個半天。
+            </p>
+            <p>
+              「哈哈哈，弟弟，「一二三、一二三、左轉彎來右轉彎—」」姊姊高興得忘了形，忽然大聲唱起我們小時候在學校裏愛唱的歌來了，這時三輪車夫回頭很古怪地朝姊姊看了一眼，我知道他的想法，我的臉發熱起來了，姊姊沒有覺得，她仍舊天真得跟小時候一樣，所不同的是她以前那張紅得透熟的蘋果臉現在已經變得蠟黃了，好像給蟲蛀過一樣，有點浮腫，一戳就要癟了下去一樣；眼睛也變了，凝滯無光，像死了四、五天的金魚眼。
+            </p>
+            <p>「一二三、一二三—」</p>
+            <p>「噓！姊，別那麼大聲，人家要笑話你了。」</p>
+            <p>
+              「哦、哦、「一二三—」哈，弟弟，奶奶後來怎麼着了？我好像很久很久沒有看見她了，呃—」愈是後來的事情姊姊的記憶愈是模糊了。
+            </p>
+            <p>「奇怪！弟，奶奶後來到底怎麼了？」</p>
+            <p>「奶奶不是老早過世了嗎？姊。」這個問題她已經問過我好多次了。</p>
+            <p>「奶奶過世了？喔！甚麼時候過世的？我怎麼不知道？」</p>
+            <p>「那時你還在外國唸書呢，姊。」</p>
+            <p>
+              姊姊的臉色突然變了，好像有甚麼東西刺了她一下，眼睛裏顯得有點惶恐，嘴脣顛動了一會兒，囁嚅說道：
+            </p>
+            <p>
+              「弟—我怕，一個人漆黑的宿舍裏頭，我溜了出來，後來—後來跌到溝裏去，又給他們抓了回去，他們把我關到一個小房間裏，說我是瘋子，我說我不是瘋子，他們不信，他們要關我，我怕極了，弟，我想你們得很，我沒有辦法，我只會哭—我天天要吵着回來，回家—我說家裏不會關我的—」姊姊挽得我更緊了，好像非常依賴我似的。
+            </p>
+            <p>我的臉又熱了起來，手心有點發汗。</p>
+
+            <p class="section-header">四</p>
+            <p>
+              早上十點鐘是台大醫院最熱鬧的當兒，門口停滿了三輪車，求診的、出院的，進出不停，有的人頭上裹了繃帶，有的人腳上纏着紗布，還有些甚麼也沒有紮，卻是愁眉苦臉，讓別人攙着哼哼唧唧的扶進去。當車子停在醫院門口時，姊姊悄悄的問我：
+            </p>
+            <p>
+              「弟弟，我們不是去看菊花嗎？來這裏—」姊姊瞪着我，往醫院裏指了一指，我馬上接着說道：
+            </p>
+            <p>「哦，是的，姊姊，我們N先去看一位朋友馬上就去看菊花，噢。」</p>
+            <p>
+              姊姊點了一點頭沒有做聲，挽着我走了進去。裏面比外面暖多了，有點燠悶，一股沖鼻的氣味刺得人不太舒服，像是消毒品的藥味，又似乎是痰盂裏發出來的腥臭；小孩打針的哭聲，急診室裏的呻吟，以及走廊架牀上陣陣的顫抖，營營嗡嗡，在這個博物館似的大建築物裏互相交織着。走廊及候診室全排滿了病人，一個挨着一個在等待自己的號碼，有的低頭看報，有的瞪着眼睛發怔，一有人走過跟前，大家就不約而同的掃上一眼。我挽着姊姊走過這些走廊時恨不得三步當兩步跨過去，因為每一道目光掃過來時，我就得低一下頭，可是姊姊的步子卻愈來愈遲緩了，她沒有說甚麼，我從她的眼神卻看出了她心中漸生的恐懼。外科診室外面病人特別多，把過道都塞住了，要過去就得把人羣擠開，正當我急急忙忙用手撥路時，姊姊忽然緊緊抓住了我的手臂停了下來。
+            </p>
+            <p>「弟弟，我想我們還是回去罷。」</p>
+            <p>「為甚麼？姊。」我的心砰然一跳。</p>
+            <p>「弟，這個地方不好，這些人—呃，我要回去了。」</p>
+            <p>我連忙放低了聲音溫和地對姊姊說：</p>
+            <p>「姊，你不是要去去看菊花嗎？我們去看看朋友然後馬上就—」</p>
+            <p>
+              「不！我要回去了。」姊姊咬住下脣執拗的說，這種情形姊姊小時候有時也會發生的，那時我總遷就她，可是今天我卻不能了。姊姊要往回走，我緊緊地挽着她不讓她走。
+            </p>
+            <p>
+              「我要回去嘛！」姊姊忽然提高了聲音，立刻所有的病人一齊朝我們看過來，幾十道目光逼得我十分尷尬。
+            </p>
+            <p>
+              「姊—」我乞求地叫着她，姊姊不管，仍舊往回裏掙扎，我愈用力拖住她，她愈掙得厲害，她胖胖的身軀左一扭右一扭，我幾乎不能抓牢她了。走廊上的人全都圍了過來，有幾個人嘻嘻哈哈笑出了聲音，有兩個小孩跑到姊姊背後指指點點，我的臉如同燒鐵烙下，突然熱得有點發疼：
+            </p>
+            <p>
+              「姊姊—請你—姊—」姊姊猛一拉，我腳下沒有站穩，整個人撲到她身上去，即刻四周爆起了一陣哈哈，幾乎就在同一刻，我急得不知怎的在姊姊的臂上狠勁捏了一把，姊姊痛苦地叫了一聲「噯喲！」就停止了掙扎，漸漸恢復了平靜與溫馴，可是她圓腫的臉上卻扭曲得厲害。
+            </p>
+            <p>「怎麼啦，姊—」我囁嚅的問她。</p>
+            <p>
+              「弟—你把我捏痛了。」姊姊撈起袖子，圓圓的臂上露出了一塊紫紅的傷斑。
+            </p>
+
+            <p class="section-header">五</p>
+            <p>
+              到林大夫的診室要走很長一節路，約莫轉三四個彎才看到一條與先前不同的過道，這條過道比較狹窄而且是往地下漸漸斜下去的，所以光線陰暗，大概很少人來這裏面，地板的積塵也較厚些，道口有一扇大鐵柵，和監獄裏的一樣，地上全是一條條欄杆的陰影。守柵的人讓我們進去以後馬上又把柵加上了鐵鎖。我一面走一面裝着十分輕鬆的樣子，與姊姊談些我們小時的趣事，她慢慢地又開心起來了，後來她想起了家裏的貓咪，還跟我說：「弟，你答應了的啵，我們看完菊花買兩條魚回去給咪咪吃，咪咪好可憐的，我怕牠要哭了。」過道的盡頭另外又有一道鐵柵，鐵柵的上面有塊牌子，寫着「精神科」三個大字，裏面是一連串病房，林大夫的診室就在鐵柵門口。
+            </p>
+            <p>
+              林大夫見我們來了，很和藹的跟我打招呼說了幾句話，姊姊笑嘻嘻地說道：「弟弟要帶我來看菊花。」一會兒姊姊背後來了兩個護士，我知道這是我們分手的時候了，我挽着姊姊走向裏面那扇鐵柵，兩個護士跟在我們後面，姊姊挽得我緊緊的，臉上露着一絲微笑—就如同我們小時候放學手挽着手回家那樣，姊姊的微笑總是那麼溫柔的。走到鐵柵門口時，兩個護士便上來把姊姊接了過去，姊姊喃喃地叫了我一聲「弟弟」還沒來得及講別的話，鐵柵已經「咔嚓」一聲上了鎖，把姊姊和我隔開了兩邊，姊姊這時才忽然明白了甚麼似的，馬上轉身一隻手緊抓着鐵柵，一隻手伸出欄杆外想來挽我，同時還放聲哭了起來。
+            </p>
+            <p>「你說帶我來看菊花的，怎麼—弟—」</p>
+
+            <p class="section-header">六</p>
+            <p>
+              紫衣、飛仙、醉月、大白菊—唔，好香，我湊近那朵沾滿了露水的大白菊猛吸了一口，一縷冷香，浸涼浸涼的，聞了心裏頭舒服多了，外面下雨了，新公園裏的遊人零零落落剩下了幾個，我心中想：要是—要是姊姊此刻能和我一道來看看這些碗大一朵的菊花，她不知該樂成甚麼樣兒。我有點怕回去了—我怕姊姊的咪咪真的會哭起來。
+            </p>
+            <p style="text-align: right">
+              —原文選自允晨文化出版社《寂寞的十七歲》
+            </p>
+          </div>
+        </section>
+
+        <section id="characters">
+          <h2>人物分析</h2>
+          <div class="accordion-item">
+            <div class="accordion-header">
+              「我」（弟弟） <span class="icon">&gt;</span>
+            </div>
+            <div class="accordion-content">
+              <p>
+                「我」是小說的敘事者，也是故事的核心人物。他深愛著姐姐，但又必須遵從父親的指示，將姐姐送入精神病院。這使得他內心充滿了矛盾與掙扎：一方面是手足情深，不忍欺騙；另一方面是現實的無奈與責任。他用「看菊花」的謊言來掩飾殘酷的真相，最終雖然完成了任務，卻也因此背負了沉重的愧疚感。小說細膩地描寫了「我」的心理活動，展現了一個在親情、責任與道德困境中痛苦掙扎的年輕人形象。
+                [2, 3, 4, 5]
+              </p>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <div class="accordion-header">
+              「姐姐」 <span class="icon">&gt;</span>
+            </div>
+            <div class="accordion-content">
+              <p>
+                「姐姐」是小說中精神失常的患者，但她並非傳統意義上的「瘋子」。在她眼中，世界依然純真美好，她愛貓、愛花，對弟弟充滿信任與依賴。她的精神世界沉浸在對過去溫馨或痛苦的回憶中，與現實格格不入。她因過於單純而顯得脆弱，無法承受現實的殘酷。她對弟弟的信任被利用，最終被鎖在鐵柵欄後，她的哭泣與不解，深刻地揭示了她悲劇性的命運。
+                [2, 3, 4, 5]
+              </p>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <div class="accordion-header">
+              姐弟關係 <span class="icon">&gt;</span>
+            </div>
+            <div class="accordion-content">
+              <p>
+                姐弟二人從小感情深厚，共同成長，擁有許多美好的童年回憶。這種深厚的親情是小說情感的基石。然而，由於姐姐的病情，「我」不得不以欺騙的方式將她送走，這使得原本純粹的姐弟情蒙上了一層悲劇色彩。小說通過「我」對姐姐的愛與愧疚，以及姐姐對「我」的依賴與最終的覺察，展現了親情在現實困境中的扭曲與無奈，令人動容。
+                [2, 2, 3, 4, 5]
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <section id="themes">
+          <h2>主題探討</h2>
+          <div class="accordion-item">
+            <div class="accordion-header">
+              親情與欺騙的矛盾 <span class="icon">&gt;</span>
+            </div>
+            <div class="accordion-content">
+              <p>
+                小說最核心的主題之一。弟弟深愛姐姐，卻被迫以謊言將她送入精神病院。這種以愛為名的欺騙，使得親情關係變得複雜而痛苦。弟弟的內心掙扎，正是這種矛盾的體現，揭示了在特定情境下，愛與傷害可能並存的悲劇。
+                [2, 3, 4, 5]
+              </p>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <div class="accordion-header">
+              記憶與現實的對比 <span class="icon">&gt;</span>
+            </div>
+            <div class="accordion-content">
+              <p>
+                小說中穿插了姐弟倆對童年美好時光的追憶，這些溫馨的回憶與當下陰冷、殘酷的現實形成鮮明對比。姐姐活在自己的回憶世界中，不願面對現實；而弟弟則在回憶與現實的夾縫中痛苦掙扎。這種對比加深了小說的悲劇氛圍，也凸顯了逝去的美好與當下的無奈。
+                [2, 4]
+              </p>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <div class="accordion-header">
+              人際溝通的隔閡與孤絕 <span class="icon">&gt;</span>
+            </div>
+            <div class="accordion-content">
+              <p>
+                小說深刻地探討了人與人之間情感溝通的艱難，尤其是在「我」與姐姐之間。姐姐活在自己的世界，無法與外界有效溝通；而「我」也無法向姐姐坦白真相，只能選擇欺騙。即使是血脈相連的親人，也存在著難以逾越的隔閡，導致了情感上的孤絕。
+                [3, 6]
+              </p>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <div class="accordion-header">
+              對弱者的同情與社會的殘酷 <span class="icon">&gt;</span>
+            </div>
+            <div class="accordion-content">
+              <p>
+                小說對患有精神疾病的姐姐寄予了深切的同情。她純真、脆弱，卻不得不面對被「社會」隔離的命運。精神病院的鐵柵欄象徵著社會對異己的排斥與隔絕。作者通過姐姐的遭遇，批判了現實的殘酷，並表達了對這些無法適應社會的「脆弱之花」的悲憫。
+                [2, 3, 4]
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <section id="techniques">
+          <h2>寫作手法</h2>
+          <div class="accordion-item">
+            <div class="accordion-header">
+              第一人稱敘事 <span class="icon">&gt;</span>
+            </div>
+            <div class="accordion-content">
+              <p>
+                小說採用「我」的視角進行敘述，這使得讀者能夠直接進入弟弟的內心世界，感受他的矛盾、痛苦與掙扎。這種視角增強了故事的真實感和情感的感染力，也讓讀者對弟弟的行為產生理解和同情。
+                [2, 3, 4]
+              </p>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <div class="accordion-header">
+              環境描寫與氣氛營造 <span class="icon">&gt;</span>
+            </div>
+            <div class="accordion-content">
+              <p>
+                小說開篇以「陰寒的早晨」、「暗灰色」的環境描寫，為整個故事奠定了壓抑、傷感、晦澀的基調。這種環境描寫不僅烘托了人物的心情，也預示了故事悲劇性的發展。
+                [4]
+              </p>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <div class="accordion-header">
+              象徵手法：菊花 <span class="icon">&gt;</span>
+            </div>
+            <div class="accordion-content">
+              <p>
+                菊花是小說中最重要的象徵物。它既是弟弟哄騙姐姐的藉口，又是姐姐純真、愛美天性的體現。然而，菊花的「冷香」與最終的「看不成」則暗示了美好事物的脆弱、短暫，以及現實的無情。菊花也可能象徵著姐姐那種在混亂中依然保持的某種「高潔」或「純粹」，但最終仍被「入院」的現實所摧毀。
+                [3, 4]
+              </p>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <div class="accordion-header">
+              倒敘與插敘 <span class="icon">&gt;</span>
+            </div>
+            <div class="accordion-content">
+              <p>
+                小說在敘述當下事件的同時，不斷穿插姐弟倆童年的回憶片段。這些回憶不僅交代了姐姐精神失常的線索，也豐富了人物形象，更重要的是，它們與現實形成對比，加深了故事的悲劇色彩和情感深度。
+                [2, 3, 4]
+              </p>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <div class="accordion-header">
+              心理描寫 <span class="icon">&gt;</span>
+            </div>
+            <div class="accordion-content">
+              <p>
+                白先勇擅長心理描寫，在小說中細膩刻畫了弟弟內心的矛盾、掙扎、愧疚與悲哀。例如，弟弟在送姐姐入院後，獨自看菊花時的複雜情感，以及他對「要是姐姐此刻能夠和我一道來看看這些碗大一朵的菊花，她不知該樂成什麼樣兒」的想像，都深刻展現了人物的內心世界。
+                [3]
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <section id="language">
+          <h2>語文知識</h2>
+          <p>
+            白先勇的語言風格典雅、細膩，充滿畫面感與情感張力。在《我們看菊花去》中，他運用了許多富有表現力的詞語和修辭手法，營造出獨特的氛圍。
+          </p>
+          <ul>
+            <li>
+              <strong>「陰寒的早晨」、「暗灰色」：</strong>
+              這些詞語不僅描寫了環境，更直接渲染了故事的悲劇氣氛和人物內心的壓抑。
+            </li>
+            <li>
+              <strong>「一縷冷香，浸涼浸涼的」：</strong>
+              描寫菊花的香氣，以「冷香」、「浸涼」等觸覺感受來形容嗅覺，暗示了美中帶悲、純真中帶有無奈的意境。
+              [3]
+            </li>
+            <li>
+              <strong
+                >「鐵柵已經『克察』一聲上了鎖，把姐姐和我隔開了兩邊」：</strong
+              >
+              「克察」是擬聲詞，生動地再現了鐵門關閉的瞬間，強調了姐姐與外界隔絕的現實，以及弟弟內心的震撼與無力。
+              [3]
+            </li>
+            <li>
+              <strong>「我有點怕回去了——我怕姐姐的咪咪真的會哭起來」：</strong>
+              結尾的這句話充滿了弟弟的愧疚與對姐姐的憐惜，以「咪咪」的哭泣來象徵姐姐純真世界的崩塌，極具感染力。
+              [3]
+            </li>
+          </ul>
+        </section>
+
+        <section id="discussion">
+          <h2>思考與討論</h2>
+          <p>請思考以下問題，並嘗試與同學或老師討論：</p>
+          <ol>
+            <li>
+              如果你是小說中的「我」，面對必須將姐姐送入精神病院的困境，你會選擇欺騙她，還是會嘗試其他方式？為什麼？
+            </li>
+            <li>
+              小說中的「菊花」除了作為欺騙的藉口，你認為它還有哪些更深層次的象徵意義？它與姐姐的命運有何關聯？
+            </li>
+            <li>
+              「我」在故事結尾獨自看菊花時的心理活動，反映了怎樣的複雜情感？這段描寫對小說的主題有何深化作用？
+            </li>
+            <li>你認為白先勇通過這篇小說，想要表達對社會或人性的哪些看法？</li>
+            <li>
+              這篇小說給你帶來了哪些情感上的觸動或啟發？你如何理解人與人之間情感溝通的「隔閡」？
+            </li>
+            <li>
+              小說第二部分描寫家中院子裏的扶桑和杜鵑，描寫這些植物對刻畫姊姊的形象有甚麼作用？
+            </li>
+            <li>
+              小說的第三部分提到三輪車夫對姊姊的表現的反應，這是甚麼描寫手法？運用這種手法有甚麼效果？試從小說第四部分另舉一例，略加說明。
+            </li>
+            <li>
+              從哪些地方可見姊姊與「我」感情深厚？試從二人的童年回憶和往醫院路上的情況兩方面說明。
+            </li>
+            <li>小說三次以咪咪要哭作為伏筆和照應，在表達情感上有甚麼效果？</li>
+            <li>
+              試比較《我們看菊花去》和《孔乙己》中的「我」面對主角的不幸遭遇，各有甚麼表現？並比較兩篇小說中的「我」對主角的情感表現。
+            </li>
+            <li>
+              《我們看菊花去》和《孔乙己》兩篇小說均描寫深秋的環境氣氛，作者的用意有何相同之處？
+            </li>
+          </ol>
+        </section>
+
+        <section id="quiz">
+          <h2>互動小測</h2>
+          <form id="quizForm">
+            <div class="quiz-question">
+              <p>1. 《我們看菊花去》最初的標題是什麼？</p>
+              <div class="quiz-options">
+                <label
+                  ><input type="radio" name="q1" value="A" /> A.
+                  《菊花之約》</label
+                >
+                <label
+                  ><input type="radio" name="q1" value="B" /> B. 《入院》</label
+                >
+                <label
+                  ><input type="radio" name="q1" value="C" /> C.
+                  《姊弟情深》</label
+                >
+                <label
+                  ><input type="radio" name="q1" value="D" /> D.
+                  《寂寞的十七歲》</label
+                >
+              </div>
+              <div class="quiz-feedback" id="feedback1"></div>
+            </div>
+
+            <div class="quiz-question">
+              <p>2. 小說中，「我」用什麼藉口哄騙姐姐去醫院？</p>
+              <div class="quiz-options">
+                <label
+                  ><input type="radio" name="q2" value="A" /> A. 探望親戚</label
+                >
+                <label
+                  ><input type="radio" name="q2" value="B" /> B. 逛街購物</label
+                >
+                <label
+                  ><input type="radio" name="q2" value="C" /> C. 看菊花展</label
+                >
+                <label
+                  ><input type="radio" name="q2" value="D" /> D. 參加聚會</label
+                >
+              </div>
+              <div class="quiz-feedback" id="feedback2"></div>
+            </div>
+
+            <div class="quiz-question">
+              <p>3. 故事結尾，「我」獨自看菊花時，心中最主要的情感是什麼？</p>
+              <div class="quiz-options">
+                <label
+                  ><input type="radio" name="q3" value="A" /> A. 輕鬆愉快</label
+                >
+                <label
+                  ><input type="radio" name="q3" value="B" /> B. 憤怒不滿</label
+                >
+                <label
+                  ><input type="radio" name="q3" value="C" /> C.
+                  愧疚與悲哀</label
+                >
+                <label
+                  ><input type="radio" name="q3" value="D" /> D. 解脫自在</label
+                >
+              </div>
+              <div class="quiz-feedback" id="feedback3"></div>
+            </div>
+
+            <div class="quiz-question">
+              <p>4. 小說採用哪種敘事視角？</p>
+              <div class="quiz-options">
+                <label
+                  ><input type="radio" name="q4" value="A" /> A. 全知視角</label
+                >
+                <label
+                  ><input type="radio" name="q4" value="B" /> B.
+                  第一人稱視角</label
+                >
+                <label
+                  ><input type="radio" name="q4" value="C" /> C.
+                  第二人稱視角</label
+                >
+                <label
+                  ><input type="radio" name="q4" value="D" /> D.
+                  第三人稱有限視角</label
+                >
+              </div>
+              <div class="quiz-feedback" id="feedback4"></div>
+            </div>
+
+            <div class="quiz-question">
+              <p>5. 小說中穿插姐弟童年回憶的手法屬於哪種敘事技巧？</p>
+              <div class="quiz-options">
+                <label
+                  ><input type="radio" name="q5" value="A" /> A. 順敘</label
+                >
+                <label
+                  ><input type="radio" name="q5" value="B" /> B.
+                  倒敘與插敘</label
+                >
+                <label
+                  ><input type="radio" name="q5" value="C" /> C. 預敘</label
+                >
+                <label
+                  ><input type="radio" name="q5" value="D" /> D. 平行敘事</label
+                >
+              </div>
+              <div class="quiz-feedback" id="feedback5"></div>
+            </div>
+
+            <div class="quiz-question">
+              <p>
+                6.
+                故事開篇描寫「陰寒的早晨」、「暗灰色」的環境，其主要作用是什麼？
+              </p>
+              <div class="quiz-options">
+                <label
+                  ><input type="radio" name="q6" value="A" /> A.
+                  交代故事發生的時間</label
+                >
+                <label
+                  ><input type="radio" name="q6" value="B" /> B.
+                  烘托人物心情，營造悲劇氣氛</label
+                >
+                <label
+                  ><input type="radio" name="q6" value="C" /> C.
+                  展現自然風光的美麗</label
+                >
+                <label
+                  ><input type="radio" name="q6" value="D" /> D.
+                  突出季節的變化</label
+                >
+              </div>
+              <div class="quiz-feedback" id="feedback6"></div>
+            </div>
+
+            <div class="quiz-question">
+              <p>
+                7.
+                根據小說第二和第三部分，以下哪項不是姊姊在小說中表現出的病狀？
+              </p>
+              <div class="quiz-options">
+                <label
+                  ><input type="radio" name="q7" value="A" /> A. 不能自理</label
+                >
+                <label
+                  ><input type="radio" name="q7" value="B" /> B. 脾氣乖張</label
+                >
+                <label
+                  ><input type="radio" name="q7" value="C" /> C. 表現傻氣</label
+                >
+                <label
+                  ><input type="radio" name="q7" value="D" /> D. 記憶模糊</label
+                >
+              </div>
+              <div class="quiz-feedback" id="feedback7"></div>
+            </div>
+
+            <div class="quiz-question">
+              <p>
+                8.
+                在第三部分，當三輪車夫回頭看姊姊時，「我」的臉發熱，這最能描述「我」當時的哪種感受？
+              </p>
+              <div class="quiz-options">
+                <label
+                  ><input type="radio" name="q8" value="A" /> A.
+                  因太久沒有與姊姊一起外出而感到緊張</label
+                >
+                <label
+                  ><input type="radio" name="q8" value="B" /> B.
+                  因被他人發覺姊姊異常的表現而感到尷尬</label
+                >
+                <label
+                  ><input type="radio" name="q8" value="C" /> C.
+                  對姊姊患病感到難過</label
+                >
+                <label
+                  ><input type="radio" name="q8" value="D" /> D.
+                  因姊姊執拗而感到不耐煩</label
+                >
+              </div>
+              <div class="quiz-feedback" id="feedback8"></div>
+            </div>
+
+            <div class="quiz-question">
+              <p>
+                9.
+                在第三部分，姊姊挽着「我」的手回憶在宿舍的經歷後，「我」的臉發熱，這最能描述「我」當時的哪種感受？
+              </p>
+              <div class="quiz-options">
+                <label
+                  ><input type="radio" name="q9" value="A" /> A.
+                  因太久沒有與姊姊一起外出而感到緊張</label
+                >
+                <label
+                  ><input type="radio" name="q9" value="B" /> B.
+                  因被他人發覺姊姊異常的表現而感到尷尬</label
+                >
+                <label
+                  ><input type="radio" name="q9" value="C" /> C.
+                  對姊姊患病感到難過</label
+                >
+                <label
+                  ><input type="radio" name="q9" value="D" /> D.
+                  對騙姊姊入院感到愧疚</label
+                >
+              </div>
+              <div class="quiz-feedback" id="feedback9"></div>
+            </div>
+
+            <div class="quiz-question">
+              <p>
+                10.
+                在第四部分，「我」在醫院走廊與姊姊糾纏的時候，「我」的臉發熱，這最能描述「我」當時的哪種感受？
+              </p>
+              <div class="quiz-options">
+                <label
+                  ><input type="radio" name="q10" value="A" /> A.
+                  因太久沒有與姊姊一起外出而感到緊張</label
+                >
+                <label
+                  ><input type="radio" name="q10" value="B" /> B.
+                  因被他人發覺姊姊異常的表現而感到尷尬</label
+                >
+                <label
+                  ><input type="radio" name="q10" value="C" /> C.
+                  對姊姊患病感到難過</label
+                >
+                <label
+                  ><input type="radio" name="q10" value="D" /> D.
+                  因姊姊執拗而感到不耐煩</label
+                >
+              </div>
+              <div class="quiz-feedback" id="feedback10"></div>
+            </div>
+
+            <div class="quiz-question">
+              <p>
+                11. 小說多次描寫姊姊緊緊挽着「我」的情態，以下哪項是其作用之一？
+              </p>
+              <div class="quiz-options">
+                <label
+                  ><input type="radio" name="q11" value="A" /> A.
+                  表現姊姊十分信任「我」</label
+                >
+                <label
+                  ><input type="radio" name="q11" value="B" /> B.
+                  突顯姊姊內心孤獨寂寞</label
+                >
+                <label
+                  ><input type="radio" name="q11" value="C" /> C.
+                  暗示「我」對姊姊的行為不知所措</label
+                >
+                <label
+                  ><input type="radio" name="q11" value="D" /> D.
+                  強調「我」因欺騙姊姊而內疚</label
+                >
+              </div>
+              <div class="quiz-feedback" id="feedback11"></div>
+            </div>
+
+            <div class="quiz-question">
+              <p>
+                12.
+                假若小說將第一人稱「我」改為第三人稱「他」敍事，以下陳述何者正確？
+              </p>
+              <div class="quiz-options">
+                <label
+                  ><input type="radio" name="q12" value="A" /> A.
+                  更能直白地表現「我」的內心感受</label
+                >
+                <label
+                  ><input type="radio" name="q12" value="B" /> B.
+                  讀者對「我」的感受會更為客觀</label
+                >
+                <label
+                  ><input type="radio" name="q12" value="C" /> C.
+                  能夠以全知角度敍事</label
+                >
+                <label
+                  ><input type="radio" name="q12" value="D" /> D.
+                  B和C皆正確</label
+                >
+              </div>
+              <div class="quiz-feedback" id="feedback12"></div>
+            </div>
+
+            <div class="quiz-question">
+              <p>
+                13.
+                假若小說將第一人稱「我」改為第三人稱「他」敍事，以下陳述何者錯誤？
+              </p>
+              <div class="quiz-options">
+                <label
+                  ><input type="radio" name="q13" value="A" /> A.
+                  讀者與「我」的距離會拉遠</label
+                >
+                <label
+                  ><input type="radio" name="q13" value="B" /> B.
+                  能以全知角度敍事</label
+                >
+                <label
+                  ><input type="radio" name="q13" value="C" /> C.
+                  更能直白地表現「我」的內心感受</label
+                >
+                <label
+                  ><input type="radio" name="q13" value="D" /> D.
+                  對「我」的心理描寫會減少</label
+                >
+              </div>
+              <div class="quiz-feedback" id="feedback13"></div>
+            </div>
+
+            <button type="button" class="submit-quiz-btn" onclick="checkQuiz()">
+              提交答案
+            </button>
+            <div class="quiz-results" id="quizResults"></div>
+          </form>
+        </section>
+      </main>
+
+      <footer>
+        <p>香港中文科教學資源 © 2025</p>
+      </footer>
+    </div>
+
+    <script>
+      // 平滑滾動到錨點
+      document.querySelectorAll("nav ul li a").forEach((anchor) => {
+        anchor.addEventListener("click", function (e) {
+          e.preventDefault();
+          document.querySelector(this.getAttribute("href")).scrollIntoView({
+            behavior: "smooth",
+          });
+
+          // 更新導航欄的 active 狀態
+          document.querySelectorAll(".nav-link").forEach((link) => {
+            link.classList.remove("active");
+          });
+          this.classList.add("active");
+        });
+      });
+
+      // 可摺疊內容 (Accordion) 邏輯
+      document.querySelectorAll(".accordion-header").forEach((header) => {
+        header.addEventListener("click", () => {
+          const accordionItem = header.closest(".accordion-item");
+          accordionItem.classList.toggle("active");
+        });
+      });
+
+      // 互動小測邏輯
+      const correctAnswers = {
+        q1: "B",
+        q2: "C",
+        q3: "C",
+        q4: "B",
+        q5: "B",
+        q6: "B",
+        q7: "B", // 脾氣乖張不是姊姊的病狀
+        q8: "B", // 被他人發覺姊姊異常而尷尬
+        q9: "D", // 對騙姊姊入院感到愧疚
+        q10: "B", // 被他人發覺姊姊異常而尷尬
+        q11: "A", // 表現姊姊十分信任「我」
+        q12: "C", // 改用第三人稱，能以全知角度敍事 (根據D41628_ANS.docx Q7(2))
+        q13: "C", // 更能直白地表現「我」的內心感受 (根據D41628_ANS.docx Q7(1)是錯誤的，所以這是錯誤的陳述)
+      };
+
+      function checkQuiz() {
+        let score = 0;
+        const totalQuestions = Object.keys(correctAnswers).length;
+
+        for (let i = 1; i <= totalQuestions; i++) {
+          const questionName = `q${i}`;
+          const selectedOption = document.querySelector(
+            `input[name="${questionName}"]:checked`
+          );
+          const feedbackDiv = document.getElementById(`feedback${i}`);
+
+          feedbackDiv.style.display = "block"; // 顯示反饋
+
+          if (selectedOption) {
+            if (selectedOption.value === correctAnswers[questionName]) {
+              feedbackDiv.className = "quiz-feedback correct";
+              feedbackDiv.textContent = "正確！";
+              score++;
+            } else {
+              feedbackDiv.className = "quiz-feedback incorrect";
+              feedbackDiv.textContent = `錯誤。正確答案是 ${correctAnswers[questionName]}。`;
+            }
+          } else {
+            feedbackDiv.className = "quiz-feedback incorrect";
+            feedbackDiv.textContent = "請選擇一個答案。";
+          }
+        }
+
+        const quizResultsDiv = document.getElementById("quizResults");
+        quizResultsDiv.style.display = "block";
+        quizResultsDiv.textContent = `你的得分是：${score} / ${totalQuestions}。`;
+      }
+    </script>
+  </body>
+</html>
